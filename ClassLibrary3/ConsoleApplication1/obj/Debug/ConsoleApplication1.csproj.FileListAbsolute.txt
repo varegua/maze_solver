@@ -1,0 +1,8 @@
+c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ConsoleApplication1\bin\Debug\ClassLibrary3.dll
+c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ConsoleApplication1\bin\Debug\ClassLibrary3.pdb
+c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

@@ -30,5 +30,6 @@ namespace WpfApplication1
             StartGamePage page = new StartGamePage();
             this.NavigationService.Navigate(page);
         }
+
     }
 }

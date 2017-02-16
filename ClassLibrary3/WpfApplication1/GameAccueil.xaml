@@ -12,5 +12,6 @@
         <Button x:Name="btnPlay" Content="Play" HorizontalAlignment="Left" Margin="190,128,0,0" VerticalAlignment="Top" Width="108" Height="34" Click="btnPlay_Click"/>
         <Button x:Name="btnQuit" Content="Quit" HorizontalAlignment="Left" Margin="190,204,0,0" VerticalAlignment="Top" Width="108" Height="34" />
         <Label x:Name="lblTitle" Content="MAZE" HorizontalAlignment="Left" Margin="190,38,0,0" VerticalAlignment="Top" Height="46" Width="108" FontSize="25" FontWeight="Bold"  HorizontalContentAlignment="Center"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="115,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="49" Width="299"/>
     </Grid>
 </Page>

@@ -6,3 +6,11 @@ c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ConsoleApp
 c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
 c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ConsoleApplication1\bin\Debug\ClassLibrary3.dll
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ConsoleApplication1\bin\Debug\ClassLibrary3.pdb

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLibrary3.ServiceReference1;
+using ClassLibrary3.mazeSolverService;
 using System.Threading;
 
 namespace ConsoleApplication1

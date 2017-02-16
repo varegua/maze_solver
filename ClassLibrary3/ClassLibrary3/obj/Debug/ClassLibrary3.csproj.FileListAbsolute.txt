@@ -4,3 +4,8 @@ c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ClassLibra
 c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.csprojResolveAssemblyReference.cache
 c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.dll
 c:\users\benjamin\documents\visual studio 2015\Projects\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.pdb
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\bin\Debug\ClassLibrary3.dll.config
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\bin\Debug\ClassLibrary3.dll
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\bin\Debug\ClassLibrary3.pdb
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.dll
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.pdb

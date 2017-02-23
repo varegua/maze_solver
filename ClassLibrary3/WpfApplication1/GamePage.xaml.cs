@@ -55,22 +55,23 @@ namespace WpfApplication1
         {
             if (e.Key == Key.Up)
             {
-
                 doMovePlayer(this.playerGame, this.player, Direction.Up);
+                personnage.Margin = new Thickness(0, -30,0,0);
             }
             else if (e.Key == Key.Right)
             {
                 doMovePlayer(this.playerGame, this.player, Direction.Right);
+                personnage.Margin = new Thickness(30, 0, 0, 0);
             }
             else if (e.Key == Key.Left)
             {
                 doMovePlayer(this.playerGame, this.player, Direction.Left);
-                Canvas.SetLeft(personnage, 30);
+                personnage.Margin = new Thickness(-30, 0, 0, 0);
             }
             else if (e.Key == Key.Down)
             {
                 doMovePlayer(this.playerGame, this.player, Direction.Down);
-                Canvas.SetBottom(personnage, 30);
+                personnage.Margin = new Thickness(0, 30, 0, 0);
             }
             refreshPossibility();
         }

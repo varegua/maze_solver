@@ -42,5 +42,3 @@ D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\WpfApplication1\obj\Debu
 D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.g.resources
 D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.Properties.Resources.resources
 D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.csproj.GenerateResource.Cache
-D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\MyUserControl.g.cs
-D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\MyUserControl.baml

@@ -15,6 +15,9 @@
         <Label x:Name="lblPosibility" Content="" HorizontalAlignment="Left" Margin="15,61,0,0" VerticalAlignment="Top" Height="184" Width="299"/>
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="15,250,0,0" VerticalAlignment="Top" Width="75"/>
         <Image Name ="personnage" Source="Img/oeil.jpg" Width="30" Height="30" Margin="0,0,0,0"/>
+        <Canvas.Background>
+            <ImageBrush ImageSource="Img/background.jpg"/>
+        </Canvas.Background>
     </Canvas>
   
 </Page>

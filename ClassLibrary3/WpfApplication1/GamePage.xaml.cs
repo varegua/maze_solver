@@ -48,6 +48,7 @@ namespace WpfApplication1
             refreshPossibility();
             myGrid.Width = playerGame.Maze.Width*30;
             myGrid.Height = playerGame.Maze.Height*30;
+            personnage.Margin = new Thickness(currentPosition.X * 30, currentPosition.Y * 30, 0, 0);
         }
 
 
@@ -56,22 +57,18 @@ namespace WpfApplication1
             if (e.Key == Key.Up)
             {
                 doMovePlayer(this.playerGame, this.player, Direction.Up);
-                personnage.Margin = new Thickness(0, -30,0,0);
             }
             else if (e.Key == Key.Right)
             {
                 doMovePlayer(this.playerGame, this.player, Direction.Right);
-                personnage.Margin = new Thickness(30, 0, 0, 0);
             }
             else if (e.Key == Key.Left)
             {
                 doMovePlayer(this.playerGame, this.player, Direction.Left);
-                personnage.Margin = new Thickness(-30, 0, 0, 0);
             }
             else if (e.Key == Key.Down)
             {
                 doMovePlayer(this.playerGame, this.player, Direction.Down);
-                personnage.Margin = new Thickness(0, 30, 0, 0);
             }
             refreshPossibility();
         }
@@ -81,6 +78,8 @@ namespace WpfApplication1
             try
             {
                 this.player = this.gameClient.MovePlayer(playerGame.Key, player.Key, dir);
+                this.currentPosition = this.player.CurrentPosition;
+                personnage.Margin = new Thickness(currentPosition.X * 30, currentPosition.Y * 30, 0, 0);
             }
             catch (System.ServiceModel.FaultException e)
             {
@@ -116,6 +115,7 @@ namespace WpfApplication1
                     if (cell.Position.X > currentPosition.X && cell.Position.Y == currentPosition.Y)
                     {
                         lblPosibility.Content += "Tu peux aller à droite en " + cell.Position.X + ", " + cell.Position.Y + "\n";
+
                     }
                     else if (cell.Position.X < currentPosition.X && cell.Position.Y == currentPosition.Y)
                     {

@@ -62,9 +62,6 @@
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MyUserControl.xaml.cs">
-      <DependentUpon>MyUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="StartGamePage.xaml.cs">
       <DependentUpon>StartGamePage.xaml</DependentUpon>
     </Compile>
@@ -88,10 +85,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MyUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="StartGamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Img\oeil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

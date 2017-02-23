@@ -39,7 +39,7 @@ namespace WpfApplication1
 
         private void InitPage()
         {
-            HideNextLevel();
+            HideNextLevelButton();
             EditResult();
         }
 
@@ -87,7 +87,10 @@ namespace WpfApplication1
             }
         }
 
-        private void HideNextLevel()
+        /*
+         * Si on est au dernier niveau, cache le bouton "Next Level"
+         */ 
+        private void HideNextLevelButton()
         {
             if (playerGame.Difficulty.Equals(Difficulty.Extreme))
             {

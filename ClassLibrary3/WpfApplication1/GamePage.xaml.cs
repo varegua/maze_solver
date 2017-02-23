@@ -39,18 +39,29 @@ namespace WpfApplication1
             this.name = name;
             this.difficulty = difficulty;
             InitializeComponent();
+            InitializeGame();
             this.Focus();
+    }
+
+        private void InitializeGame()
+        {
             this.gameClient = new GameClient("BasicHttpBinding_IGame");
-            this.playerGame = gameClient.CreateGame(difficulty, name);
+            this.playerGame = gameClient.CreateGame(this.difficulty, this.name);
             this.player = playerGame.Player;
-            lblPlayer.Content = "Bonjour " + name + ", tu vas jouer sur une grille de " + playerGame.Maze.Height + "x" + playerGame.Maze.Width + "   \t " + this.player.FinishTime;
-            currentPosition = player.CurrentPosition;
-            refreshPossibility();
-            myGrid.Width = playerGame.Maze.Width*30;
-            myGrid.Height = playerGame.Maze.Height*30;
-            personnage.Margin = new Thickness(currentPosition.X * 30, currentPosition.Y * 30, 0, 0);
+            this.currentPosition = player.CurrentPosition;
+            difficultyLabel.Content += this.difficulty.ToString();
+            nbMoveValue.Content = player.NbMove;
+            playerNameLabel.Content += player.Name;
+            refreshPlayerPossibilities(player);
+            InitGameCanvas();
         }
 
+        private void InitGameCanvas()
+        {
+            gameCanvas.Width = playerGame.Maze.Width * 30;
+            gameCanvas.Height = playerGame.Maze.Height * 30;
+            personnage.Margin = new Thickness(currentPosition.X * 30, currentPosition.Y * 30, 0, 0);
+        }
 
         private void Page_KeyDown(object sender, KeyEventArgs e)
         {
@@ -70,7 +81,7 @@ namespace WpfApplication1
             {
                 doMovePlayer(this.playerGame, this.player, Direction.Down);
             }
-            refreshPossibility();
+            refreshPlayerPossibilities(this.player);
         }
 
         private void doMovePlayer(PlayerGame playerGame, Player player, Direction dir)
@@ -80,59 +91,86 @@ namespace WpfApplication1
                 this.player = this.gameClient.MovePlayer(playerGame.Key, player.Key, dir);
                 this.currentPosition = this.player.CurrentPosition;
                 personnage.Margin = new Thickness(currentPosition.X * 30, currentPosition.Y * 30, 0, 0);
+                nbMoveValue.Content = player.NbMove;
             }
             catch (System.ServiceModel.FaultException e)
             {
                 MessageBox.Show(e.Message);
             }
-            if (this.player.FinishTime != null)
-            {
-                MessageBox.Show("You finish in " + this.player.FinishTime);
-                GameAccueil page = new GameAccueil();
-                this.NavigationService.Navigate(page);
-            }
-            refreshPossibility();
+            FinishGame();
+            refreshPlayerPossibilities(this.player);
             if (!this.IsFocused)
             {
                 this.Focus();
             }
         }
 
-        private void refreshPossibility()
+        private void refreshPlayerPossibilities(Player player)
         {
-            currentPosition = player.CurrentPosition;
-            lblPosibility.Content = "";
-            lblPosibility.Content = "Tu es en " + currentPosition.X + ", " + currentPosition.Y + "\n";
+            Position currentPlayerPosition = player.CurrentPosition;
             Cell[] visibleCells = player.VisibleCells;
+            String possibility = "";
             foreach (Cell cell in visibleCells)
             {
-                if (cell.CellType.Equals(CellType.End))
-                {
-                    lblPosibility.Content += "Sortie en " + cell.Position.X + ", " + cell.Position.Y + "\n";
-                }
-                if (cell.CellType.Equals(CellType.Empty) || cell.CellType.Equals(CellType.Start))
-                {
-                    if (cell.Position.X > currentPosition.X && cell.Position.Y == currentPosition.Y)
-                    {
-                        lblPosibility.Content += "Tu peux aller à droite en " + cell.Position.X + ", " + cell.Position.Y + "\n";
-
-                    }
-                    else if (cell.Position.X < currentPosition.X && cell.Position.Y == currentPosition.Y)
-                    {
-                        lblPosibility.Content += "Tu peux aller à gauche en " + cell.Position.X + ", " + cell.Position.Y + "\n";
-
-                    }
-                    else if (cell.Position.Y > currentPosition.Y && cell.Position.X == currentPosition.X)
-                    {
-                        lblPosibility.Content += "Tu peux aller en bas en " + cell.Position.X + ", " + cell.Position.Y + "\n";
-
-                    }
-                    else if (cell.Position.Y < currentPosition.Y && cell.Position.X == currentPosition.X)
-                    {
-                        lblPosibility.Content += "Tu peux aller en haut en " + cell.Position.X + ", " + cell.Position.Y + "\n";
-                    }
-                }
+                possibility += CellPossibility(cell, currentPlayerPosition);
             }
+        }
+
+        private String CellPossibility(Cell cell, Position playerPosition)
+        {
+            String strPossibility = "";
+            switch (cell.CellType)
+            {
+                case CellType.End:
+                    strPossibility = "Sortie en " + cell.Position.X + ", " + cell.Position.Y + "\n";
+                    strPossibility += GetPossibleDirection(cell.Position, playerPosition);
+                    break;
+                case CellType.Empty:
+                    strPossibility = GetPossibleDirection(cell.Position, playerPosition);
+                    break;
+                case CellType.Start:
+                    strPossibility = "Case départ en " + cell.Position.X + ", " + cell.Position.Y + "\n";
+                    strPossibility += GetPossibleDirection(cell.Position, playerPosition);
+                    break;
+                default:
+                    break;
+            }
+
+            return strPossibility;
+        }
+
+        private String GetPossibleDirection(Position position, Position playerPosition)
+        {
+            String strPossibleDirection = "";
+            if (position.X > playerPosition.X && position.Y == playerPosition.Y)
+            {
+                strPossibleDirection = "Tu peux aller à droite en " + position.X + ", " + position.Y + "\n";
+            }
+            else if (position.X < playerPosition.X && position.Y == playerPosition.Y)
+            {
+                strPossibleDirection = "Tu peux aller à gauche en " + position.X + ", " + position.Y + "\n";
+            }
+            else if (position.Y > playerPosition.Y && position.X == playerPosition.X)
+            {
+                strPossibleDirection = "Tu peux aller en bas en " + position.X + ", " + position.Y + "\n";
+            }
+            else if (position.Y < playerPosition.Y && position.X == playerPosition.X)
+            {
+                strPossibleDirection = "Tu peux aller en haut en " + position.X + ", " + position.Y + "\n";
+            }
+            return strPossibleDirection;
+        }
+
+
+        private void FinishGame()
+        {
+            if (this.player.FinishTime != null)
+            {
+                MessageBox.Show("You finish in " + this.player.FinishTime);
+                GameEnd page = new GameEnd(gameClient, playerGame);
+                this.NavigationService.Navigate(page);
+            }
+
         }
     }
 }

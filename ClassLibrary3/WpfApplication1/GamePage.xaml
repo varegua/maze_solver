@@ -10,14 +10,15 @@
       
       Title="GamePage" KeyDown="Page_KeyDown" >
 
-    <Canvas Name="myGrid">        
-        <Label x:Name="lblPlayer" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="342" Height="46"/>
-        <Label x:Name="lblPosibility" Content="" HorizontalAlignment="Left" Margin="15,61,0,0" VerticalAlignment="Top" Height="184" Width="299"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="15,250,0,0" VerticalAlignment="Top" Width="75"/>
+    <Canvas Name="gameCanvas" Margin="0,30,0,0">
         <Image Name ="personnage" Source="Img/oeil.jpg" Width="30" Height="30" Margin="0,0,0,0"/>
+        <Label x:Name="playerNameLabel" Content="Player : " Height="25" Canvas.Top="-29" Width="171" Canvas.Left="171"/>
+        <Label x:Name="nbMoveLabel" Content="Nb moves : " Height="25" Canvas.Left="347" Canvas.Top="-29" Width="71"/>
+        <Label x:Name="nbMoveValue" Content="" Height="25" Canvas.Left="423" Canvas.Top="-29" Width="75"/>
+        <Label x:Name="difficultyLabel" Content="Difficulty : " Height="25" Canvas.Top="-29" Width="171"/>
         <Canvas.Background>
             <ImageBrush ImageSource="Img/background.jpg"/>
         </Canvas.Background>
     </Canvas>
-  
+
 </Page>

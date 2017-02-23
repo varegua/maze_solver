@@ -53,7 +53,9 @@ namespace WpfApplication1
 
         private void btnRestart_Click(object sender, RoutedEventArgs e)
         {
-            this.gameClient.ResetGame(this.playerGame.Key);
+            String playerName = this.playerGame.Player.Name;
+            GamePage page = new GamePage(playerName, playerGame.Difficulty, gameClient);
+            this.NavigationService.Navigate(page);
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)

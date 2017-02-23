@@ -41,7 +41,14 @@ namespace WpfApplication1
             InitializeComponent();
             InitializeGame();
             this.Focus();
-    }
+        }
+
+        public GamePage(string name, Difficulty difficulty, GameClient gameClient, PlayerGame playerGame) : this(name, difficulty)
+        {
+            this.gameClient = gameClient;
+            Game game = this.gameClient.ResetGame(playerGame.Key);
+
+        }
 
         private void InitializeGame()
         {
@@ -61,6 +68,7 @@ namespace WpfApplication1
             gameCanvas.Width = playerGame.Maze.Width * 30;
             gameCanvas.Height = playerGame.Maze.Height * 30;
             personnage.Margin = new Thickness(currentPosition.X * 30, currentPosition.Y * 30, 0, 0);
+            addImage(60, 60);
         }
 
         private void Page_KeyDown(object sender, KeyEventArgs e)
@@ -142,25 +150,28 @@ namespace WpfApplication1
         private String GetPossibleDirection(Position position, Position playerPosition)
         {
             String strPossibleDirection = "";
+            //droite
             if (position.X > playerPosition.X && position.Y == playerPosition.Y)
             {
-                strPossibleDirection = "Tu peux aller à droite en " + position.X + ", " + position.Y + "\n";
+                addImage(position.X, position.Y);
             }
+            //gauche
             else if (position.X < playerPosition.X && position.Y == playerPosition.Y)
             {
-                strPossibleDirection = "Tu peux aller à gauche en " + position.X + ", " + position.Y + "\n";
+                addImage(position.X, position.Y);
             }
+            //bas
             else if (position.Y > playerPosition.Y && position.X == playerPosition.X)
             {
-                strPossibleDirection = "Tu peux aller en bas en " + position.X + ", " + position.Y + "\n";
+                addImage(position.X, position.Y);
             }
+            //haut
             else if (position.Y < playerPosition.Y && position.X == playerPosition.X)
             {
-                strPossibleDirection = "Tu peux aller en haut en " + position.X + ", " + position.Y + "\n";
+                addImage(position.X, position.Y);
             }
             return strPossibleDirection;
         }
-
 
         private void FinishGame()
         {
@@ -171,6 +182,19 @@ namespace WpfApplication1
                 this.NavigationService.Navigate(page);
             }
 
+        }
+
+        BitmapImage cheminBitmap = new BitmapImage(new Uri("pack://application:,,,/Img/chemin.jpg", UriKind.RelativeOrAbsolute));
+
+        private void addImage(int X, int Y)
+        {
+            Image cheminImage = new Image();
+            cheminImage.Source = cheminBitmap;
+            cheminImage.Width = 30;
+            cheminImage.Height = 30;
+            Canvas.SetLeft(cheminImage, X*30);
+            Canvas.SetTop(cheminImage, Y*30);
+            gameCanvas.Children.Add(cheminImage);
         }
     }
 }

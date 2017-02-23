@@ -46,12 +46,16 @@ namespace WpfApplication1
             lblPlayer.Content = "Bonjour " + name + ", tu vas jouer sur une grille de " + playerGame.Maze.Height + "x" + playerGame.Maze.Width + "   \t " + this.player.FinishTime;
             currentPosition = player.CurrentPosition;
             refreshPossibility();
+            myGrid.Width = playerGame.Maze.Width*30;
+            myGrid.Height = playerGame.Maze.Height*30;
         }
+
 
         private void Page_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Up)
+            if (e.Key == Key.Up)
             {
+
                 doMovePlayer(this.playerGame, this.player, Direction.Up);
             }
             else if (e.Key == Key.Right)
@@ -61,10 +65,12 @@ namespace WpfApplication1
             else if (e.Key == Key.Left)
             {
                 doMovePlayer(this.playerGame, this.player, Direction.Left);
+                Canvas.SetLeft(personnage, 30);
             }
             else if (e.Key == Key.Down)
             {
                 doMovePlayer(this.playerGame, this.player, Direction.Down);
+                Canvas.SetBottom(personnage, 30);
             }
             refreshPossibility();
         }
@@ -75,11 +81,11 @@ namespace WpfApplication1
             {
                 this.player = this.gameClient.MovePlayer(playerGame.Key, player.Key, dir);
             }
-            catch(System.ServiceModel.FaultException e)
+            catch (System.ServiceModel.FaultException e)
             {
-                 MessageBox.Show(e.Message); 
+                MessageBox.Show(e.Message);
             }
-            if(this.player.FinishTime != null)
+            if (this.player.FinishTime != null)
             {
                 MessageBox.Show("You finish in " + this.player.FinishTime);
                 GameAccueil page = new GameAccueil();
@@ -104,7 +110,7 @@ namespace WpfApplication1
                 {
                     lblPosibility.Content += "Sortie en " + cell.Position.X + ", " + cell.Position.Y + "\n";
                 }
-                if (cell.CellType.Equals(CellType.Empty)||cell.CellType.Equals(CellType.Start))
+                if (cell.CellType.Equals(CellType.Empty) || cell.CellType.Equals(CellType.Start))
                 {
                     if (cell.Position.X > currentPosition.X && cell.Position.Y == currentPosition.Y)
                     {
@@ -127,6 +133,5 @@ namespace WpfApplication1
                 }
             }
         }
-
     }
 }

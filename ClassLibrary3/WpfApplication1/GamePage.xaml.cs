@@ -35,12 +35,13 @@ namespace WpfApplication1
 
         public GamePage(string name, Difficulty difficulty)
         {
-            this.ShowsNavigationUI = false;
             this.name = name;
             this.difficulty = difficulty;
             InitializeComponent();
             InitializeGame();
+            InitWindows();
             this.Focus();
+            this.ShowsNavigationUI = false;
         }
 
         public GamePage(string name, Difficulty difficulty, GameClient gameClient, PlayerGame playerGame) : this(name, difficulty)
@@ -52,16 +53,24 @@ namespace WpfApplication1
 
         private void InitializeGame()
         {
-            this.gameClient = new GameClient("BasicHttpBinding_IGame");
-            this.playerGame = gameClient.CreateGame(this.difficulty, this.name);
-            this.player = playerGame.Player;
-            this.currentPosition = player.CurrentPosition;
-            difficultyLabel.Content += this.difficulty.ToString();
-            nbMoveValue.Content = player.NbMove;
-            playerNameLabel.Content += player.Name;
-            refreshPlayerPossibilities(player);
-            InitGameCanvas();
+                this.gameClient = new GameClient("BasicHttpBinding_IGame");
+                this.playerGame = gameClient.CreateGame(this.difficulty, this.name);
+                this.player = playerGame.Player;
+                this.currentPosition = player.CurrentPosition;
+                difficultyLabel.Content += this.difficulty.ToString();
+                nbMoveValue.Content = player.NbMove;
+                playerNameLabel.Content += player.Name;
+                refreshPlayerPossibilities(player);
+                InitWindows();
+                InitGameCanvas();
         }
+
+        private void InitWindows()
+        {
+            this.WindowHeight = 70 + this.playerGame.Maze.Height * 31;
+            this.WindowWidth = 100 + this.playerGame.Maze.Width * 31;
+        }
+
 
         private void InitGameCanvas()
         {
@@ -100,6 +109,7 @@ namespace WpfApplication1
                 this.currentPosition = this.player.CurrentPosition;
                 personnage.Margin = new Thickness(currentPosition.X * 30, currentPosition.Y * 30, 0, 0);
                 nbMoveValue.Content = player.NbMove;
+
             }
             catch (System.ServiceModel.FaultException e)
             {
@@ -194,7 +204,11 @@ namespace WpfApplication1
             cheminImage.Height = 30;
             Canvas.SetLeft(cheminImage, X*30);
             Canvas.SetTop(cheminImage, Y*30);
-            gameCanvas.Children.Add(cheminImage);
+            if(!gameCanvas.Children.Contains(cheminImage))
+                gameCanvas.Children.Add(cheminImage);
+            
         }
+
+
     }
 }

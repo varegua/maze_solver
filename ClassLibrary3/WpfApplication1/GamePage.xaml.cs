@@ -37,14 +37,17 @@ namespace WpfApplication1
 
         public GamePage(string name, Difficulty difficulty)
         {
+            this.ShowsNavigationUI = false;
             this.name = name;
             this.difficulty = difficulty;
             InitializeComponent();
             InitializeGame();
-            InitWindows();
             this.Focus();
+<<<<<<< HEAD
             this.ShowsNavigationUI = false;
  
+=======
+>>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
         }
 
         public GamePage(string name, Difficulty difficulty, GameClient gameClient, PlayerGame playerGame) : this(name, difficulty)
@@ -56,6 +59,7 @@ namespace WpfApplication1
 
         private void InitializeGame()
         {
+<<<<<<< HEAD
                 this.gameClient = new GameClient("BasicHttpBinding_IGame");
                 this.playerGame = gameClient.CreateGame(this.difficulty, this.name);
                 this.player = playerGame.Player;
@@ -74,8 +78,18 @@ namespace WpfApplication1
         {
             this.WindowHeight = 70 + this.playerGame.Maze.Height * 31;
             this.WindowWidth = 100 + this.playerGame.Maze.Width * 31;
+=======
+            this.gameClient = new GameClient("BasicHttpBinding_IGame");
+            this.playerGame = gameClient.CreateGame(this.difficulty, this.name);
+            this.player = playerGame.Player;
+            this.currentPosition = player.CurrentPosition;
+            difficultyLabel.Content += this.difficulty.ToString();
+            nbMoveValue.Content = player.NbMove;
+            playerNameLabel.Content += player.Name;
+            refreshPlayerPossibilities(player);
+            InitGameCanvas();
+>>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
         }
-
 
         private void InitGameCanvas()
         {
@@ -118,8 +132,12 @@ namespace WpfApplication1
                 this.player = this.gameClient.MovePlayer(playerGame.Key, player.Key, dir);
                 this.currentPosition = this.player.CurrentPosition;
                 personnage.Margin = new Thickness(currentPosition.X * 30, currentPosition.Y * 30, 0, 0);
+<<<<<<< HEAD
                 nbMoveValue.Content = this.player.NbMove;
 
+=======
+                nbMoveValue.Content = player.NbMove;
+>>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
             }
             catch (System.ServiceModel.FaultException e)
             {
@@ -311,6 +329,7 @@ namespace WpfApplication1
 
             cheminImage.Width = 30;
             cheminImage.Height = 30;
+<<<<<<< HEAD
             Canvas.SetLeft(cheminImage, X * 30);
             Canvas.SetTop(cheminImage, Y * 30);
         }
@@ -325,5 +344,11 @@ namespace WpfApplication1
             
         }
 
+=======
+            Canvas.SetLeft(cheminImage, X*30);
+            Canvas.SetTop(cheminImage, Y*30);
+            gameCanvas.Children.Add(cheminImage);
+        }
+>>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
     }
 }

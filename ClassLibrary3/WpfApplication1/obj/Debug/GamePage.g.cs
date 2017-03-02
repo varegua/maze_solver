@@ -1,6 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿#pragma checksum "..\..\GamePage.xaml" "{406ea660-64cf-4c82-b6f0-42d48172a799}" "17FD6319506F51256D87218EC0E71D4F"
+=======
+﻿#pragma checksum "..\..\GamePage.xaml" "{406ea660-64cf-4c82-b6f0-42d48172a799}" "ECBBDA04E95A12322665310BFBC721A5"
+>>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
 =======
 ﻿#pragma checksum "..\..\GamePage.xaml" "{406ea660-64cf-4c82-b6f0-42d48172a799}" "ECBBDA04E95A12322665310BFBC721A5"
 >>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté

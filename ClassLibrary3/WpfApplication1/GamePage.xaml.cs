@@ -82,7 +82,8 @@ namespace WpfApplication1
             gameCanvas.Width = playerGame.Maze.Width * 30;
             gameCanvas.Height = playerGame.Maze.Height * 30;
             personnage.Margin = new Thickness(currentPosition.X * 30, currentPosition.Y * 30, 0, 0);
-            addImage(60, 60);
+            addImage(60, 60, "ver");
+            gameCanvas.IsHitTestVisible = false;
         }
 
         private void Page_KeyDown(object sender, KeyEventArgs e)
@@ -150,14 +151,17 @@ namespace WpfApplication1
             {
                 case CellType.End:
                     strPossibility = "Sortie en " + cell.Position.X + ", " + cell.Position.Y + "\n";
-                    strPossibility += GetPossibleDirection(cell.Position, playerPosition);
+                    strPossibility += GetPossibleDirection(cell.Position, playerPosition, "end");
                     break;
                 case CellType.Empty:
-                    strPossibility = GetPossibleDirection(cell.Position, playerPosition);
+                    strPossibility = GetPossibleDirection(cell.Position, playerPosition, "empty");
                     break;
                 case CellType.Start:
                     strPossibility = "Case départ en " + cell.Position.X + ", " + cell.Position.Y + "\n";
-                    strPossibility += GetPossibleDirection(cell.Position, playerPosition);
+                    strPossibility += GetPossibleDirection(cell.Position, playerPosition, "start");
+                    break;
+                case CellType.Wall:
+                    strPossibility += GetPossibleDirection(cell.Position, playerPosition, "wall");
                     break;
                 default:
                     break;
@@ -166,29 +170,111 @@ namespace WpfApplication1
             return strPossibility;
         }
 
-        private String GetPossibleDirection(Position position, Position playerPosition)
+        private String GetPossibleDirection(Position position, Position playerPosition, String name)
         {
             String strPossibleDirection = "";
             //droite
             if (position.X > playerPosition.X && position.Y == playerPosition.Y)
             {
-                addImage(position.X, position.Y);
+                if (name == "empty")
+                    addImage(position.X, position.Y, "hor");
+                else if (name == "start")
+                    addImage(position.X, position.Y, "start");
+                else if (name == "end")
+                    addImage(position.X, position.Y, "end");
+                else if (name == "wall")
+                    addImage(position.X, position.Y, "wall");
             }
+
             //gauche
             else if (position.X < playerPosition.X && position.Y == playerPosition.Y)
             {
-                addImage(position.X, position.Y);
+                if (name == "empty")
+                        addImage(position.X, position.Y, "hor");
+                else if (name == "start")
+                    addImage(position.X, position.Y, "start");
+                else if (name == "end")
+                    addImage(position.X, position.Y, "end");
+                else if (name == "wall")
+                    addImage(position.X, position.Y, "wall");
             }
             //bas
             else if (position.Y > playerPosition.Y && position.X == playerPosition.X)
             {
-                addImage(position.X, position.Y);
+                if (name == "empty")
+                    addImage(position.X, position.Y, "ver");
+                else if (name == "start")
+                    addImage(position.X, position.Y, "start");
+                else if (name == "end")
+                    addImage(position.X, position.Y, "end");
+                else if (name == "wall")
+                    addImage(position.X, position.Y, "wall");
             }
             //haut
             else if (position.Y < playerPosition.Y && position.X == playerPosition.X)
             {
-                addImage(position.X, position.Y);
+                if (name == "empty")
+                    addImage(position.X, position.Y, "ver");
+                else if (name == "start")
+                    addImage(position.X, position.Y, "start");
+                else if (name == "end")
+                    addImage(position.X, position.Y, "end");
+                else if (name == "wall")
+                    addImage(position.X, position.Y, "wall");
             }
+
+            //droite haut
+            if (position.X > playerPosition.X && position.Y < playerPosition.Y)
+            {
+                if (name == "empty")
+                    addImage(position.X, position.Y, "hor");
+                else if (name == "start")
+                    addImage(position.X, position.Y, "start");
+                else if (name == "end")
+                    addImage(position.X, position.Y, "end");
+                else if (name == "wall")
+                    addImage(position.X, position.Y, "wall");
+            }
+
+            //droite bas
+            if (position.X > playerPosition.X && position.Y > playerPosition.Y)
+            {
+                if (name == "empty")
+                    addImage(position.X, position.Y, "hor");
+                else if (name == "start")
+                    addImage(position.X, position.Y, "start");
+                else if (name == "end")
+                    addImage(position.X, position.Y, "end");
+                else if (name == "wall")
+                    addImage(position.X, position.Y, "wall");
+            }
+
+            //gauche haut
+            if (position.X < playerPosition.X && position.Y < playerPosition.Y)
+            {
+                if (name == "empty")
+                    addImage(position.X, position.Y, "hor");
+                else if (name == "start")
+                    addImage(position.X, position.Y, "start");
+                else if (name == "end")
+                    addImage(position.X, position.Y, "end");
+                else if (name == "wall")
+                    addImage(position.X, position.Y, "wall");
+            }
+
+            //gauche bas
+            if (position.X < playerPosition.X && position.Y > playerPosition.Y)
+            {
+                if (name == "empty")
+                    addImage(position.X, position.Y, "hor");
+                else if (name == "start")
+                    addImage(position.X, position.Y, "start");
+                else if (name == "end")
+                    addImage(position.X, position.Y, "end");
+                else if (name == "wall")
+                    addImage(position.X, position.Y, "wall");
+            }
+
             return strPossibleDirection;
         }
 
@@ -203,19 +289,30 @@ namespace WpfApplication1
 
         }
 
-        BitmapImage cheminBitmap = new BitmapImage(new Uri("pack://application:,,,/Img/chemin.jpg", UriKind.RelativeOrAbsolute));
+        BitmapImage cheminBitmapHor = new BitmapImage(new Uri("pack://application:,,,/Img/chemin_hor.jpg", UriKind.RelativeOrAbsolute));
+        BitmapImage cheminBitmapVer = new BitmapImage(new Uri("pack://application:,,,/Img/chemin_ver.jpg", UriKind.RelativeOrAbsolute));
+        BitmapImage cheminBitmapWall = new BitmapImage(new Uri("pack://application:,,,/Img/Wall.jpg", UriKind.RelativeOrAbsolute));
+        BitmapImage cheminBitmapStart = new BitmapImage(new Uri("pack://application:,,,/Img/Start.jpg", UriKind.RelativeOrAbsolute));
+        BitmapImage cheminBitmapEnd = new BitmapImage(new Uri("pack://application:,,,/Img/End.jpg", UriKind.RelativeOrAbsolute));
 
-        private void addImage(int X, int Y)
+        private void addImage(int X, int Y, String img)
         {
             Image cheminImage = new Image();
-            cheminImage.Source = cheminBitmap;
+            if (img == "hor")
+                cheminImage.Source = cheminBitmapHor;
+            else if (img == "ver")
+                cheminImage.Source = cheminBitmapVer;
+            else if (img == "wall")
+                cheminImage.Source = cheminBitmapWall;
+            else if (img == "start")
+                cheminImage.Source = cheminBitmapStart;
+            else if (img == "end")
+                cheminImage.Source = cheminBitmapEnd;
+
             cheminImage.Width = 30;
             cheminImage.Height = 30;
-            Canvas.SetLeft(cheminImage, X*30);
-            Canvas.SetTop(cheminImage, Y*30);
-            if(!gameCanvas.Children.Contains(cheminImage))
-                gameCanvas.Children.Add(cheminImage);
-            
+            Canvas.SetLeft(cheminImage, X * 30);
+            Canvas.SetTop(cheminImage, Y * 30);
         }
 
         private void PlayBot()

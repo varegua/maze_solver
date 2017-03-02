@@ -132,17 +132,14 @@
       <Name>ClassLibrary3</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Img\oeil.jpg" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Img\background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Img\chemin_croix.jpg" />
     <Resource Include="Img\chemin_hor.jpg" />
     <Resource Include="Img\chemin_ver.jpg" />
     <Resource Include="Img\End.jpg" />
+    <Resource Include="Img\oeil.jpg" />
     <Resource Include="Img\Start.jpg" />
     <Resource Include="Img\Wall.jpg" />
   </ItemGroup>

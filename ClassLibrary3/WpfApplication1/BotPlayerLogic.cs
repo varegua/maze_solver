@@ -53,13 +53,13 @@ namespace WpfApplication1
                     cell = tryPredicate(list, dirDown, dirRight, dirLeft);
                     break;
                 case Direction.Right:
-                    cell = tryPredicate(list, dirDown, dirRight, dirLeft);
+                    cell = tryPredicate(list, dirDown, dirRight, dirUp);
                     break;
                 case Direction.Left:
-                    cell = tryPredicate(list, dirDown, dirRight, dirLeft);
+                    cell = tryPredicate(list, dirDown, dirLeft, dirUp);
                     break;
                 default:
-                    cell = tryPredicate(list, dirDown, dirRight, dirLeft);
+                    cell = tryPredicate(list, dirRight, dirLeft, dirUp);
                     break;
             }
             return cell;

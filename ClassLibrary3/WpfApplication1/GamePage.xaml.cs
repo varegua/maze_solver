@@ -44,8 +44,11 @@ namespace WpfApplication1
             InitializeGame();
             this.Focus();
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.ShowsNavigationUI = false;
  
+=======
+>>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
 =======
 >>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
         }
@@ -59,6 +62,7 @@ namespace WpfApplication1
 
         private void InitializeGame()
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
                 this.gameClient = new GameClient("BasicHttpBinding_IGame");
                 this.playerGame = gameClient.CreateGame(this.difficulty, this.name);
@@ -79,6 +83,8 @@ namespace WpfApplication1
             this.WindowHeight = 70 + this.playerGame.Maze.Height * 31;
             this.WindowWidth = 100 + this.playerGame.Maze.Width * 31;
 =======
+=======
+>>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
             this.gameClient = new GameClient("BasicHttpBinding_IGame");
             this.playerGame = gameClient.CreateGame(this.difficulty, this.name);
             this.player = playerGame.Player;
@@ -88,6 +94,9 @@ namespace WpfApplication1
             playerNameLabel.Content += player.Name;
             refreshPlayerPossibilities(player);
             InitGameCanvas();
+<<<<<<< HEAD
+>>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
+=======
 >>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
         }
 
@@ -133,8 +142,12 @@ namespace WpfApplication1
                 this.currentPosition = this.player.CurrentPosition;
                 personnage.Margin = new Thickness(currentPosition.X * 30, currentPosition.Y * 30, 0, 0);
 <<<<<<< HEAD
+<<<<<<< HEAD
                 nbMoveValue.Content = this.player.NbMove;
 
+=======
+                nbMoveValue.Content = player.NbMove;
+>>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
 =======
                 nbMoveValue.Content = player.NbMove;
 >>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
@@ -330,6 +343,7 @@ namespace WpfApplication1
             cheminImage.Width = 30;
             cheminImage.Height = 30;
 <<<<<<< HEAD
+<<<<<<< HEAD
             Canvas.SetLeft(cheminImage, X * 30);
             Canvas.SetTop(cheminImage, Y * 30);
         }
@@ -344,6 +358,12 @@ namespace WpfApplication1
             
         }
 
+=======
+            Canvas.SetLeft(cheminImage, X*30);
+            Canvas.SetTop(cheminImage, Y*30);
+            gameCanvas.Children.Add(cheminImage);
+        }
+>>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
 =======
             Canvas.SetLeft(cheminImage, X*30);
             Canvas.SetTop(cheminImage, Y*30);

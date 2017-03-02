@@ -9,6 +9,7 @@
        Focusable="True"
       
 <<<<<<< HEAD
+<<<<<<< HEAD
       Title="GamePage" KeyDown="Page_KeyDown">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         <Canvas Name="gameCanvas" Margin="0,30,0,0">
@@ -23,6 +24,8 @@
         </Canvas>
     </ScrollViewer>
 =======
+=======
+>>>>>>> parent of 2ec1495... Gestion de bug sur le nom, et choix automatique de difficulté
       Title="GamePage" KeyDown="Page_KeyDown" >
 
     <Canvas Name="gameCanvas" Margin="0,30,0,0">

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClassLibrary3.mazeSolverService;
+using System.Threading;
 
 namespace WpfApplication1
 {
@@ -27,6 +28,7 @@ namespace WpfApplication1
         private PlayerGame playerGame;
         private Player player;
         private Position currentPosition;
+        private BotPlayerLogic bot;
 
         public GamePage()
         {
@@ -42,6 +44,7 @@ namespace WpfApplication1
             InitWindows();
             this.Focus();
             this.ShowsNavigationUI = false;
+ 
         }
 
         public GamePage(string name, Difficulty difficulty, GameClient gameClient, PlayerGame playerGame) : this(name, difficulty)
@@ -57,6 +60,8 @@ namespace WpfApplication1
                 this.playerGame = gameClient.CreateGame(this.difficulty, this.name);
                 this.player = playerGame.Player;
                 this.currentPosition = player.CurrentPosition;
+                this.bot = new BotPlayerLogic(this.player);
+
                 difficultyLabel.Content += this.difficulty.ToString();
                 nbMoveValue.Content = player.NbMove;
                 playerNameLabel.Content += player.Name;
@@ -98,7 +103,11 @@ namespace WpfApplication1
             {
                 doMovePlayer(this.playerGame, this.player, Direction.Down);
             }
-            refreshPlayerPossibilities(this.player);
+            else
+            {
+                PlayBot();
+                return;
+            }
         }
 
         private void doMovePlayer(PlayerGame playerGame, Player player, Direction dir)
@@ -108,7 +117,7 @@ namespace WpfApplication1
                 this.player = this.gameClient.MovePlayer(playerGame.Key, player.Key, dir);
                 this.currentPosition = this.player.CurrentPosition;
                 personnage.Margin = new Thickness(currentPosition.X * 30, currentPosition.Y * 30, 0, 0);
-                nbMoveValue.Content = player.NbMove;
+                nbMoveValue.Content = this.player.NbMove;
 
             }
             catch (System.ServiceModel.FaultException e)
@@ -209,6 +218,15 @@ namespace WpfApplication1
             
         }
 
+        private void PlayBot()
+        {
+            Direction dir;
+
+                dir = this.bot.SelectBestDirection(this.player);
+                doMovePlayer(playerGame, this.player, dir);
+                Thread.Sleep(500);
+            
+        }
 
     }
 }

@@ -71,6 +71,10 @@ namespace WpfApplication1
 
         private void EditResult()
         {
+            if(this.playerGame.Player.SecretMessage != null)
+            {
+                lblResult.Content = "Secret Message : " + this.playerGame.Player.SecretMessage + "\n";
+            }
             lblResult.Content = "You finish in "  + this.playerGame.Player.FinishTime + "and " + this.playerGame.Player.NbMove + " moves.\n";
         }
 

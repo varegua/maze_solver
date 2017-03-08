@@ -13,6 +13,7 @@ namespace WpfApplication1
         public Direction direction { get; set; }
         public CellType cellType { get; set; }
         public bool disabled { get; set; }
+        public bool alreadySee { get; set; }
 
         public PossibleDirectionCell(Position pos, Direction dir, CellType type, bool disabled)
         {
@@ -20,6 +21,7 @@ namespace WpfApplication1
             this.direction = dir;
             this.cellType = type;
             this.disabled = disabled;
+            this.alreadySee = false;
         }
     }
 }

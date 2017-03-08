@@ -92,3 +92,5 @@ D:\Cours Bordeaux\maze_solver\maze_solver\maze_solver\ClassLibrary3\WpfApplicati
 D:\Cours Bordeaux\maze_solver\maze_solver\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.csproj.GenerateResource.Cache
 D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\GameEnd.g.cs
 D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\GameEnd.baml
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\GameEnd.g.cs
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\GameEnd.baml

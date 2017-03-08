@@ -14,7 +14,7 @@ namespace WpfApplication1
         public BotPlayerLogic(Player player)
         {
             this.oldMoves = new List<PossibleDirectionCell>();
-            this.oldMoves.Add(new PossibleDirectionCell(player.CurrentPosition, Direction.Up, CellType.Start, false));
+            this.oldMoves.Add(new PossibleDirectionCell(player.CurrentPosition, Direction.Down, CellType.Start, false));
         }
 
 
@@ -67,24 +67,29 @@ namespace WpfApplication1
 
         private PossibleDirectionCell tryPredicate(List<PossibleDirectionCell> list, Predicate<PossibleDirectionCell> predicate1, Predicate<PossibleDirectionCell> predicate2, Predicate<PossibleDirectionCell> predicate3)
         {
-            PossibleDirectionCell cell = list.Find(predicate1);
-            if(cell != null)
+            List<PossibleDirectionCell> predicteListCell = new List<PossibleDirectionCell>();
+            PossibleDirectionCell  cell = list.Find(predicate1);
+            if (cell != null)
+                predicteListCell.Add(cell);
+
+             cell = list.Find(predicate2);
+            if (cell != null)
+                predicteListCell.Add(cell);
+
+            cell = list.Find(predicate3);
+            if (cell != null)
+                predicteListCell.Add(cell);
+
+            PossibleDirectionCell finalCell;
+            for(int i = 0; i < predicteListCell.Count(); i++)
             {
-                return cell;
+                finalCell = predicteListCell.ElementAt<PossibleDirectionCell>(i);
+                if (finalCell.alreadySee == false)
+                    return finalCell;
             }
-            else
-            {
-                cell = list.Find(predicate2);
-                if(cell != null)
-                {
-                    return cell;
-                }
-                else
-                {
-                    cell = list.Find(predicate3);
-                    return cell;
-                }
-            }
+            finalCell = predicteListCell.First<PossibleDirectionCell>();
+            return finalCell;
+
         }
 
         public List<PossibleDirectionCell> PossibleDirections(Cell[] visibleCells, Player player)
@@ -139,9 +144,12 @@ namespace WpfApplication1
             {
                 foreach(PossibleDirectionCell oldCell in this.oldMoves)
                 {
-                    if(cell.position.X == oldCell.position.X  && cell.position.Y == oldCell.position.Y && oldCell.disabled)
+                    if(cell.position.X == oldCell.position.X  && cell.position.Y == oldCell.position.Y)
                     {
-                        listFinalPossibleDirectionCell.Remove(cell);
+                        if (oldCell.disabled == true)
+                            listFinalPossibleDirectionCell.Remove(cell);
+                        else
+                            listFinalPossibleDirectionCell.ElementAt<PossibleDirectionCell>(listFinalPossibleDirectionCell.IndexOf(cell)).alreadySee = true;
                     }
                 }
             }

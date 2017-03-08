@@ -282,8 +282,8 @@ namespace WpfApplication1
         {
             if (this.player.FinishTime != null)
             {
-                MessageBox.Show("You finish in " + this.player.FinishTime);
-                GameEnd page = new GameEnd(gameClient, playerGame);
+                MessageBox.Show("You finish in " + this.player.FinishTime + "\n " + this.player.SecretMessage);
+                GameEnd page = new GameEnd(gameClient, playerGame, this.player);
                 this.NavigationService.Navigate(page);
             }
 
@@ -313,15 +313,19 @@ namespace WpfApplication1
             cheminImage.Height = 30;
             Canvas.SetLeft(cheminImage, X * 30);
             Canvas.SetTop(cheminImage, Y * 30);
+            gameCanvas.Children.Add(cheminImage);
         }
 
         private void PlayBot()
         {
             Direction dir;
-
+            while (this.player.FinishTime == null)
+            {
                 dir = this.bot.SelectBestDirection(this.player);
                 doMovePlayer(playerGame, this.player, dir);
+                Console.WriteLine("position X: " + this.player.CurrentPosition.X + " Y: " + this.player.CurrentPosition.Y);
                 Thread.Sleep(500);
+            }
             
         }
 

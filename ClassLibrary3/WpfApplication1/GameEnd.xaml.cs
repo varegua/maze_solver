@@ -23,16 +23,18 @@ namespace WpfApplication1
     {
         private GameClient gameClient;
         private PlayerGame playerGame;
+        private Player player;
 
         public GameEnd()
         {
             InitializeComponent();
         }
 
-        public GameEnd(GameClient gameClient, PlayerGame playerGame)
+        public GameEnd(GameClient gameClient, PlayerGame playerGame, Player player)
         {
             this.gameClient = gameClient;
             this.playerGame = playerGame;
+            this.player = player;
             InitializeComponent();
             InitPage();
         }
@@ -71,11 +73,11 @@ namespace WpfApplication1
 
         private void EditResult()
         {
-            if(this.playerGame.Player.SecretMessage != null)
+            if(this.player.SecretMessage != null)
             {
-                lblResult.Content = "Secret Message : " + this.playerGame.Player.SecretMessage + "\n";
+                lblResult.Content = "Secret Message : " + this.player.SecretMessage + "\n";
             }
-            lblResult.Content = "You finish in "  + this.playerGame.Player.FinishTime + "and " + this.playerGame.Player.NbMove + " moves.\n";
+            lblResult.Content = "You finish in "  + this.player.FinishTime + " \nand " + this.player.NbMove + " moves.\n";
         }
 
         private Difficulty getNextDifficulty(PlayerGame playerGame)

@@ -9,11 +9,11 @@
       Title="GameEnd">
 
     <Grid>
-        <Button x:Name="btnRestart" Content="Restart game" HorizontalAlignment="Left" Height="24" Margin="99,143,0,0" VerticalAlignment="Top" Width="95" Click="btnRestart_Click"/>
-        <Button x:Name="btnHome" Content="Home" HorizontalAlignment="Left" Height="24" Margin="99,186,0,0" VerticalAlignment="Top" Width="95" Click="btnHome_Click"/>
-        <Button x:Name="btnNextLevel" Content="Next Level" HorizontalAlignment="Left" Margin="99,98,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="btnNextLevel_Click"/>
-        <Button x:Name="btnQuit" Content="Quit game" HorizontalAlignment="Left" Height="23" Margin="99,230,0,0" VerticalAlignment="Top" Width="95" Click="btnQuit_Click"/>
-        <Label x:Name="lblResult" Content="" HorizontalAlignment="Left" Height="38" Margin="58,50,0,0" VerticalAlignment="Top" Width="197"/>
+        <Button x:Name="btnRestart" Content="Restart game" HorizontalAlignment="Left" Height="24" Margin="99,157,0,0" VerticalAlignment="Top" Width="95" Click="btnRestart_Click"/>
+        <Button x:Name="btnHome" Content="Home" HorizontalAlignment="Left" Height="24" Margin="99,201,0,0" VerticalAlignment="Top" Width="95" Click="btnHome_Click"/>
+        <Button x:Name="btnNextLevel" Content="Next Level" HorizontalAlignment="Left" Margin="99,113,0,0" VerticalAlignment="Top" Width="95" Height="25" Click="btnNextLevel_Click"/>
+        <Button x:Name="btnQuit" Content="Quit game" HorizontalAlignment="Left" Height="23" Margin="99,250,0,0" VerticalAlignment="Top" Width="95" Click="btnQuit_Click"/>
+        <Label x:Name="lblResult" Content="" HorizontalAlignment="Left" Height="58" Margin="10,50,0,0" VerticalAlignment="Top" Width="280"/>
         <Label x:Name="lblCongratulations" Content="Congratulations!!!" HorizontalAlignment="Left" Height="40" Margin="58,10,0,0" VerticalAlignment="Top" Width="197" FontFamily="Arial" FontSize="24"/>
 
     </Grid>

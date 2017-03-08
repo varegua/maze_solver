@@ -27,3 +27,4 @@ D:\Cours Bordeaux\maze_solver\maze_solver\maze_solver\ClassLibrary3\ClassLibrary
 D:\Cours Bordeaux\maze_solver\maze_solver\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.csprojResolveAssemblyReference.cache
 D:\Cours Bordeaux\maze_solver\maze_solver\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.dll
 D:\Cours Bordeaux\maze_solver\maze_solver\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.pdb
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.csprojResolveAssemblyReference.cache

@@ -56,7 +56,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BotPlayerLogic.cs" />
     <Compile Include="GameAccueil.xaml.cs">
       <DependentUpon>GameAccueil.xaml</DependentUpon>
     </Compile>
@@ -66,8 +65,6 @@
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Play.cs" />
-    <Compile Include="PossibleDirectionCell.cs" />
     <Compile Include="StartGamePage.xaml.cs">
       <DependentUpon>StartGamePage.xaml</DependentUpon>
     </Compile>
@@ -128,9 +125,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary3\ClassLibrary3.csproj">
+    <ProjectReference Include="..\ClassLibrary3\MazeSolver.Client.Core.csproj">
       <Project>{ac13c729-5797-4304-befc-ff436a60a37e}</Project>
-      <Name>ClassLibrary3</Name>
+      <Name>MazeSolver.Client.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

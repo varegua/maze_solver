@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary3", "ClassLibrary3\ClassLibrary3.csproj", "{AC13C729-5797-4304-BEFC-FF436A60A37E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeSolver.Client.Core", "ClassLibrary3\MazeSolver.Client.Core.csproj", "{AC13C729-5797-4304-BEFC-FF436A60A37E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1", "WpfApplication1\WpfApplication1.csproj", "{46E5809A-8BAF-47CE-9CE5-C27EF51110AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeSolver.Client.Wpf", "WpfApplication1\MazeSolver.Client.Wpf.csproj", "{46E5809A-8BAF-47CE-9CE5-C27EF51110AC}"
 	ProjectSection(ProjectDependencies) = postProject
 		{AC13C729-5797-4304-BEFC-FF436A60A37E} = {AC13C729-5797-4304-BEFC-FF436A60A37E}
 	EndProjectSection

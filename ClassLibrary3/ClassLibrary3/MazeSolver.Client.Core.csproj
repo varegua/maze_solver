@@ -43,9 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BotPlayerLogic.cs" />
+    <Compile Include="BotPlayerLogics.cs" />
     <Compile Include="Play.cs" />
-    <Compile Include="PossibleDirectionCell.cs" />
+    <Compile Include="VisitedCells.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\mazeSolverService\Reference.cs">
       <AutoGen>True</AutoGen>

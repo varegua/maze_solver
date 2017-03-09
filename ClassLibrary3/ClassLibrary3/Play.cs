@@ -1,4 +1,5 @@
 ﻿using ClassLibrary3.mazeSolverService;
+using MazeSolver.Client.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace MazeSolver.Client.Core
         public GameClient gameClient { get; }
         public PlayerGame playerGame { get; }
         public Player player { get; set; }
-        private BotPlayerLogic bot;
+        public BotPlayerLogics bot { get; set; }
 
         public Play(String name, Difficulty difficulty)
         {
@@ -25,44 +26,38 @@ namespace MazeSolver.Client.Core
             this.gameClient = new GameClient("BasicHttpBinding_IGame");
             this.playerGame = gameClient.CreateGame(difficulty, name);
             this.player = playerGame.Player;
-            this.bot = new BotPlayerLogic(this.player);
+            this.bot = new BotPlayerLogics(this.player);
         }
 
-        public int GetNbMoves()
-        {
-            return this.player.NbMove;
-        }
-
-        public Boolean DoMovePlayer(PlayerGame playerGame, Player player, Direction dir)
+        public void DoMovePlayer(Direction dir)
         {
             try
             {
-                this.player = this.gameClient.MovePlayer(playerGame.Key, player.Key, dir);
-                //MovePersonnage(this.player.CurrentPosition);
+                this.player = this.gameClient.MovePlayer(this.playerGame.Key, this.player.Key, dir);
             }
             catch (System.ServiceModel.FaultException e)
             {
             }
-            return IsFinishGame();
-          //  DisplayPlayerPossibilities(this.player.VisibleCells, this.player.CurrentPosition);
         }
 
-        public void PlayBot()
-        {
-            Direction dir;
-            while (this.player.FinishTime == null)
-            {
-                dir = this.bot.SelectBestDirection(this.player);
-                DoMovePlayer(playerGame, this.player, dir);
-                Console.WriteLine("position X: " + this.player.CurrentPosition.X + " Y: " + this.player.CurrentPosition.Y);
-                Thread.Sleep(500);
-            }
-
-        }
-
-        private Boolean IsFinishGame()
+        public Boolean IsFinishGame()
         {
             return this.player.FinishTime != null;
         }
+
+        public Boolean PlayBot()
+        {
+            Direction dir;
+
+            while (this.player.FinishTime == null)
+            {
+                dir = this.bot.FindBestDirection(this.player);
+                DoMovePlayer(dir);
+                Console.WriteLine("position X: " + this.player.CurrentPosition.X + " Y: " + this.player.CurrentPosition.Y);
+                Thread.Sleep(500);
+            }
+            return true;
+        }
+
     }
 }

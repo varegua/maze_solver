@@ -5,6 +5,8 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using ClassLibrary3.mazeSolverService;
 using MazeSolver.Client.Core;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace MazeSolver.Client.Wpf
 {
@@ -27,76 +29,90 @@ namespace MazeSolver.Client.Wpf
             InitializeComponent();
             InitializeGame();
             this.Focus();
-            this.ShowsNavigationUI = false; 
+            this.ShowsNavigationUI = false;
         }
 
-       /* public GamePage(string name, Difficulty difficulty, GameClient gameClient, PlayerGame playerGame) : this(name, difficulty)
+        /* public GamePage(string name, Difficulty difficulty, GameClient gameClient, PlayerGame playerGame) : this(name, difficulty)
+         {
+             this.gameClient = gameClient;
+             Game game = this.gameClient.ResetGame(playerGame.Key);
+
+         }*/
+
+        private void InitializeGame()
         {
-            this.gameClient = gameClient;
-            Game game = this.gameClient.ResetGame(playerGame.Key);
+            ManageImages.InitializeLabelGame(game, difficultyLabel, playerNameLabel, nbMoveValue);
+            ManageImages.DisplayPlayerPossibilities(game.player, gameCanvas);
+            InitWindows();
+            ManageImages.InitGameCanvas(gameCanvas, game);
+        }
 
-        }*/
+        private void InitWindows()
+        {
+            this.WindowHeight = 70 + this.game.playerGame.Maze.Height * 31;
+            this.WindowWidth = 100 + this.game.playerGame.Maze.Width * 31;
+        }
 
-            private void InitializeGame()
+        private void Page_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
             {
-                difficultyLabel.Content += this.game.difficulty.ToString();
-                nbMoveValue.Content = game.player.NbMove;
-                playerNameLabel.Content += game.player.Name;
-                ManageImages.DisplayPlayerPossibilities(game.player, gameCanvas);
-                InitWindows();
-                ManageImages.InitGameCanvas(gameCanvas, game);
+                case Key.Up:
+                    MovePlayerOnMaze(Direction.Up);
+                    break;
+                case Key.Right:
+                    MovePlayerOnMaze(Direction.Right);
+                    break;
+                case Key.Down:
+                    MovePlayerOnMaze(Direction.Down);
+                    break;
+                case Key.Left:
+                    MovePlayerOnMaze(Direction.Left);
+                    break;
+                case Key.Space:
+                    PlayBotVisually();
+                    break;
+                default:
+                    if (game.PlayBot())
+                    {
+                        ManageImages.DisplayFinishPage(this, game);
+                    }
+                    break;
             }
+        }
 
-            private void InitWindows()
+        private void MovePlayerOnMaze(Direction dir)
+        {
+            try
             {
-                this.WindowHeight = 70 + this.game.playerGame.Maze.Height * 31;
-                this.WindowWidth = 100 + this.game.playerGame.Maze.Width * 31;
+                game.DoMovePlayer(dir);
+                ManageImages.MovePlayerImage(game.player, personnage, nbMoveValue);
             }
-
-
-            private void Page_KeyDown(object sender, KeyEventArgs e)
+            catch (System.ServiceModel.FaultException e)
             {
-                if (e.Key == Key.Up)
-                {
-                    doMovePlayer(this.game.playerGame, this.game.player, Direction.Up);
-                }
-                else if (e.Key == Key.Right)
-                {
-                    doMovePlayer(this.game.playerGame, this.game.player, Direction.Right);
-                }
-                else if (e.Key == Key.Left)
-                {
-                    doMovePlayer(this.game.playerGame, this.game.player, Direction.Left);
-                }
-                else if (e.Key == Key.Down)
-                {
-                    doMovePlayer(this.game.playerGame, this.game.player, Direction.Down);
-                }
-                else
-                {
-                    game.PlayBot();
-                    return;
-                }
+                MessageBox.Show(e.Message);
             }
-
-            private void doMovePlayer(PlayerGame playerGame, Player player, Direction dir)
+            ManageImages.DisplayPlayerPossibilities(this.game.player, gameCanvas);
+            if (game.IsFinishGame())
             {
-                try
-                {
-                    this.game.player = this.game.gameClient.MovePlayer(playerGame.Key, player.Key, dir);
-                    this.game.player.CurrentPosition = this.game.player.CurrentPosition;
-                    ManageImages.MovePlayerImage(game, gameCanvas);
-                    nbMoveValue.Content = this.game.player.NbMove;
-
-                }
-                catch (System.ServiceModel.FaultException e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-                ManageImages.DisplayPlayerPossibilities(this.game.player, gameCanvas);
-                this.Focus();
+                ManageImages.DisplayFinishPage(this, game);
             }
+            this.Focus();
+        }
+        
+        private void PlayBotVisually()
+        {
+              Action EmptyDelegate = delegate () { };
 
-
+            while (!game.IsFinishGame())
+            {
+                game.DoMovePlayer(game.bot.FindBestDirection(game.player));
+                ManageImages.UpdateMazeImages(gameCanvas, game.player, personnage, nbMoveLabel);
+                for (int i = 0; i < gameCanvas.Children.Count; i++)
+                    gameCanvas.Children[i].InvalidateVisual();
+                Thread.Sleep(500);
+            }
+            ManageImages.DisplayFinishPage(this, game);
         }
     }
+}

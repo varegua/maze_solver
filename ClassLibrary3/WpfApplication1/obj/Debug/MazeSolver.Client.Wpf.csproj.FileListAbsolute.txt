@@ -1,14 +1,3 @@
-C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\MazeSolver.Client.Wpf.csprojResolveAssemblyReference.cache
-C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\GameAccueil.g.cs
-C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\GameEnd.g.cs
-C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\GamePage.g.cs
-C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\MainWindow.g.cs
-C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\StartGamePage.g.cs
-C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\App.g.cs
-C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.cache
-C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.lref
-C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.exe
-C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.pdb
 D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\WpfApplication1\bin\Debug\WpfApplication1.exe.config
 D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.exe
 D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.pdb
@@ -26,6 +15,15 @@ C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApp
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\bin\Debug\WpfApplication1.pdb
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\bin\Debug\ClassLibrary3.dll
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\bin\Debug\ClassLibrary3.pdb
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\MazeSolver.Client.Wpf.csprojResolveAssemblyReference.cache
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\GameAccueil.g.cs
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\GameEnd.g.cs
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\GamePage.g.cs
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\MainWindow.g.cs
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\StartGamePage.g.cs
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\App.g.cs
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.cache
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.lref
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\GameAccueil.baml
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\GameEnd.baml
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\GamePage.baml
@@ -34,3 +32,5 @@ C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApp
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.g.resources
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.Properties.Resources.resources
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\MazeSolver.Client.Wpf.csproj.GenerateResource.Cache
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.exe
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.pdb

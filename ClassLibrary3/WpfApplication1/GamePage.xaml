@@ -11,6 +11,7 @@
       Title="GamePage" KeyDown="Page_KeyDown">
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         <Canvas Name="gameCanvas" Margin="0,30,0,0">
+            <Image Name ="personnage" Source="Img/oeil.jpg" Width="30" Height="30" Panel.ZIndex="1" Margin="30"/>
             <Label x:Name="playerNameLabel" Content="Player : " MaxHeight="25" MaxWidth="160" Height="25" Canvas.Top="-29" Canvas.Left="138"/>
             <Label x:Name="nbMoveLabel" Content="Nb moves : " MaxHeight="25" MaxWidth="65" Canvas.Left="274" Canvas.Top="-29" Height="25"/>
             <Label x:Name="nbMoveValue" Content="" Height="25" MaxHeight="25" MaxWidth="65" Canvas.Left="344" Canvas.Top="-29"/>

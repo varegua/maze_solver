@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MazeSolver.Client.Core
 {
-    class PossibleDirectionCell
+    class VisitedCell
     {
         public Position position { get; set; }
         public Direction direction { get; set; }
@@ -15,7 +15,7 @@ namespace MazeSolver.Client.Core
         public bool disabled { get; set; }
         public bool alreadySee { get; set; }
 
-        public PossibleDirectionCell(Position pos, Direction dir, CellType type, bool disabled)
+        public VisitedCell(Position pos, Direction dir, CellType type, bool disabled)
         {
             this.position = pos;
             this.direction = dir;

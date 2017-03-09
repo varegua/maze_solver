@@ -66,6 +66,7 @@
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Play.cs" />
     <Compile Include="PossibleDirectionCell.cs" />
     <Compile Include="StartGamePage.xaml.cs">
       <DependentUpon>StartGamePage.xaml</DependentUpon>

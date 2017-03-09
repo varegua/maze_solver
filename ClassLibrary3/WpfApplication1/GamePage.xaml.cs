@@ -22,13 +22,8 @@ namespace WpfApplication1
     /// </summary>
     public partial class GamePage : Page
     {
-        private Difficulty difficulty;
-        private String name;
-        private GameClient gameClient;
-        private PlayerGame playerGame;
-        private Player player;
-        private Position currentPosition;
-        private BotPlayerLogic bot;
+
+        private Play game;
 
         public GamePage()
         {
@@ -37,51 +32,42 @@ namespace WpfApplication1
 
         public GamePage(string name, Difficulty difficulty)
         {
-            this.name = name;
-            this.difficulty = difficulty;
+            this.game = new Play(name, difficulty);
             InitializeComponent();
             InitializeGame();
-            InitWindows();
             this.Focus();
             this.ShowsNavigationUI = false;
  
         }
 
-        public GamePage(string name, Difficulty difficulty, GameClient gameClient, PlayerGame playerGame) : this(name, difficulty)
+       /* public GamePage(string name, Difficulty difficulty, GameClient gameClient, PlayerGame playerGame) : this(name, difficulty)
         {
             this.gameClient = gameClient;
             Game game = this.gameClient.ResetGame(playerGame.Key);
 
-        }
+        }*/
 
         private void InitializeGame()
         {
-                this.gameClient = new GameClient("BasicHttpBinding_IGame");
-                this.playerGame = gameClient.CreateGame(this.difficulty, this.name);
-                this.player = playerGame.Player;
-                this.currentPosition = player.CurrentPosition;
-                this.bot = new BotPlayerLogic(this.player);
-
-                difficultyLabel.Content += this.difficulty.ToString();
-                nbMoveValue.Content = player.NbMove;
-                playerNameLabel.Content += player.Name;
-                refreshPlayerPossibilities(player);
-                InitWindows();
-                InitGameCanvas();
+           difficultyLabel.Content += game.difficulty.ToString();
+           nbMoveValue.Content = game.player.NbMove;
+           playerNameLabel.Content += game.player.Name;
+           DisplayPlayerPossibilities(game.player);
+           InitWindows();
+           InitGameCanvas();
         }
 
         private void InitWindows()
         {
-            this.WindowHeight = 70 + this.playerGame.Maze.Height * 31;
-            this.WindowWidth = 100 + this.playerGame.Maze.Width * 31;
+            this.WindowHeight = 70 + game.playerGame.Maze.Height * 31;
+            this.WindowWidth = 100 + game.playerGame.Maze.Width * 31;
         }
-
 
         private void InitGameCanvas()
         {
-            gameCanvas.Width = playerGame.Maze.Width * 30;
-            gameCanvas.Height = playerGame.Maze.Height * 30;
-            personnage.Margin = new Thickness(currentPosition.X * 30, currentPosition.Y * 30, 0, 0);
+            gameCanvas.Width = game.playerGame.Maze.Width * 30;
+            gameCanvas.Height = game.playerGame.Maze.Height * 30;
+            personnage.Margin = new Thickness(game.player.CurrentPosition.X * 30, game.player.CurrentPosition.Y * 30, 0, 0);
             addImage(60, 60, "ver");
             gameCanvas.IsHitTestVisible = false;
         }
@@ -90,23 +76,23 @@ namespace WpfApplication1
         {
             if (e.Key == Key.Up)
             {
-                doMovePlayer(this.playerGame, this.player, Direction.Up);
+                doMovePlayer(game.playerGame, game.player, Direction.Up);
             }
             else if (e.Key == Key.Right)
             {
-                doMovePlayer(this.playerGame, this.player, Direction.Right);
+                doMovePlayer(game.playerGame, game.player, Direction.Right);
             }
             else if (e.Key == Key.Left)
             {
-                doMovePlayer(this.playerGame, this.player, Direction.Left);
+                doMovePlayer(game.playerGame, game.player, Direction.Left);
             }
             else if (e.Key == Key.Down)
             {
-                doMovePlayer(this.playerGame, this.player, Direction.Down);
+                doMovePlayer(game.playerGame, game.player, Direction.Down);
             }
             else
             {
-                PlayBot();
+                game.PlayBot();
                 return;
             }
         }
@@ -115,59 +101,50 @@ namespace WpfApplication1
         {
             try
             {
-                this.player = this.gameClient.MovePlayer(playerGame.Key, player.Key, dir);
-                this.currentPosition = this.player.CurrentPosition;
+                game.player = game.gameClient.MovePlayer(playerGame.Key, player.Key, dir);
+                Position currentPosition = game.player.CurrentPosition;
                 personnage.Margin = new Thickness(currentPosition.X * 30, currentPosition.Y * 30, 0, 0);
-                nbMoveValue.Content = this.player.NbMove;
-
+                nbMoveValue.Content = game.GetNbMoves();
             }
             catch (System.ServiceModel.FaultException e)
             {
                 MessageBox.Show(e.Message);
             }
             FinishGame();
-            refreshPlayerPossibilities(this.player);
-            if (!this.IsFocused)
-            {
-                this.Focus();
-            }
+            DisplayPlayerPossibilities(game.player);
+            this.Focus();
         }
 
-        private void refreshPlayerPossibilities(Player player)
+        private void DisplayPlayerPossibilities(Player player)
         {
             Position currentPlayerPosition = player.CurrentPosition;
             Cell[] visibleCells = player.VisibleCells;
-            String possibility = "";
             foreach (Cell cell in visibleCells)
             {
-                possibility += CellPossibility(cell, currentPlayerPosition);
+                CellPossibility(cell, currentPlayerPosition);
             }
         }
 
-        private String CellPossibility(Cell cell, Position playerPosition)
+        private void CellPossibility(Cell cell, Position playerPosition)
         {
-            String strPossibility = "";
             switch (cell.CellType)
             {
                 case CellType.End:
-                    strPossibility = "Sortie en " + cell.Position.X + ", " + cell.Position.Y + "\n";
-                    strPossibility += GetPossibleDirection(cell.Position, playerPosition, "end");
+                    GetPossibleDirection(cell.Position, playerPosition, "end");
                     break;
                 case CellType.Empty:
-                    strPossibility = GetPossibleDirection(cell.Position, playerPosition, "empty");
+                    GetPossibleDirection(cell.Position, playerPosition, "empty");
                     break;
                 case CellType.Start:
-                    strPossibility = "Case départ en " + cell.Position.X + ", " + cell.Position.Y + "\n";
-                    strPossibility += GetPossibleDirection(cell.Position, playerPosition, "start");
+                    GetPossibleDirection(cell.Position, playerPosition, "start");
                     break;
                 case CellType.Wall:
-                    strPossibility += GetPossibleDirection(cell.Position, playerPosition, "wall");
+                    GetPossibleDirection(cell.Position, playerPosition, "wall");
                     break;
                 default:
                     break;
             }
 
-            return strPossibility;
         }
 
         private String GetPossibleDirection(Position position, Position playerPosition, String name)
@@ -280,10 +257,10 @@ namespace WpfApplication1
 
         private void FinishGame()
         {
-            if (this.player.FinishTime != null)
+            if (game.player.FinishTime != null)
             {
-                MessageBox.Show("You finish in " + this.player.FinishTime + "\n " + this.player.SecretMessage);
-                GameEnd page = new GameEnd(gameClient, playerGame, this.player);
+                MessageBox.Show("You finish in " + game.player.FinishTime + "\n " + game.player.SecretMessage);
+                GameEnd page = new GameEnd(game.gameClient, game.playerGame, game.player);
                 this.NavigationService.Navigate(page);
             }
 
@@ -294,39 +271,37 @@ namespace WpfApplication1
         BitmapImage cheminBitmapWall = new BitmapImage(new Uri("pack://application:,,,/Img/Wall.jpg", UriKind.RelativeOrAbsolute));
         BitmapImage cheminBitmapStart = new BitmapImage(new Uri("pack://application:,,,/Img/Start.jpg", UriKind.RelativeOrAbsolute));
         BitmapImage cheminBitmapEnd = new BitmapImage(new Uri("pack://application:,,,/Img/End.jpg", UriKind.RelativeOrAbsolute));
+        int imageSize = 30;
 
-        private void addImage(int X, int Y, String img)
+        private void addImage(int X, int Y, String typeImg)
         {
             Image cheminImage = new Image();
-            if (img == "hor")
-                cheminImage.Source = cheminBitmapHor;
-            else if (img == "ver")
-                cheminImage.Source = cheminBitmapVer;
-            else if (img == "wall")
-                cheminImage.Source = cheminBitmapWall;
-            else if (img == "start")
-                cheminImage.Source = cheminBitmapStart;
-            else if (img == "end")
-                cheminImage.Source = cheminBitmapEnd;
-
-            cheminImage.Width = 30;
-            cheminImage.Height = 30;
-            Canvas.SetLeft(cheminImage, X * 30);
-            Canvas.SetTop(cheminImage, Y * 30);
-            gameCanvas.Children.Add(cheminImage);
-        }
-
-        private void PlayBot()
-        {
-            Direction dir;
-            while (this.player.FinishTime == null)
+            switch (typeImg)
             {
-                dir = this.bot.SelectBestDirection(this.player);
-                doMovePlayer(playerGame, this.player, dir);
-                Console.WriteLine("position X: " + this.player.CurrentPosition.X + " Y: " + this.player.CurrentPosition.Y);
-                Thread.Sleep(500);
+                case "hor":
+                    cheminImage.Source = cheminBitmapHor;
+                    break;
+                case "ver":
+                    cheminImage.Source = cheminBitmapVer;
+                    break;
+                case "wall":
+                    cheminImage.Source = cheminBitmapWall;
+                    break;
+                case "start":
+                    cheminImage.Source = cheminBitmapStart;
+                    break;
+                case "end":
+                    cheminImage.Source = cheminBitmapEnd;
+                    break;
+                default:
+                    break;
             }
-            
+
+            cheminImage.Width = imageSize;
+            cheminImage.Height = imageSize;
+            Canvas.SetLeft(cheminImage, X * imageSize);
+            Canvas.SetTop(cheminImage, Y * imageSize);
+            gameCanvas.Children.Add(cheminImage);
         }
 
     }

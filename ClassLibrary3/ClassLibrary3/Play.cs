@@ -6,19 +6,18 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.MessageBox;
 
 namespace MazeSolver.Client.Core
 {
-
-
-    class Play
+    public class Play
     {
         public Difficulty difficulty { get; }
         public String name { get; }
         public GameClient gameClient { get; }
         public PlayerGame playerGame { get; }
         public Player player { get; set; }
-        public BotPlayerLogic bot { get; set; }
+        private BotPlayerLogic bot;
 
         public Play(String name, Difficulty difficulty)
         {
@@ -44,9 +43,9 @@ namespace MazeSolver.Client.Core
             }
             catch (System.ServiceModel.FaultException e)
             {
-                MessageBox.Show(e.Message);
+                throw new System.ServiceModel.FaultException(e);
             }
-            FinishGame();
+            IsFinishGame();
           //  DisplayPlayerPossibilities(this.player.VisibleCells, this.player.CurrentPosition);
         }
 
@@ -56,20 +55,16 @@ namespace MazeSolver.Client.Core
             while (this.player.FinishTime == null)
             {
                 dir = this.bot.SelectBestDirection(this.player);
-                doMovePlayer(playerGame, this.player, dir);
+                DoMovePlayer(playerGame, this.player, dir);
                 Console.WriteLine("position X: " + this.player.CurrentPosition.X + " Y: " + this.player.CurrentPosition.Y);
                 Thread.Sleep(500);
             }
 
         }
 
-        private void FinishGame()
+        private Boolean IsFinishGame()
         {
-            if (this.player.FinishTime != null)
-            {
-                MessageBox.Show("You finish in " + this.player.FinishTime + "\n " + this.player.SecretMessage);
-                GameEnd page = new GameEnd(gameClient, playerGame, this.player);
-            }
+            return this.player.FinishTime != null;
         }
     }
 }

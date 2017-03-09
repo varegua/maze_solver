@@ -65,7 +65,6 @@
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManageImages.cs" />
     <Compile Include="StartGamePage.xaml.cs">
       <DependentUpon>StartGamePage.xaml</DependentUpon>
     </Compile>
@@ -126,9 +125,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary3\MazeSolver.Client.Core.csproj">
+    <ProjectReference Include="..\ClassLibrary3\MazeSolver.Client.CoreV1.csproj">
       <Project>{ac13c729-5797-4304-befc-ff436a60a37e}</Project>
-      <Name>MazeSolver.Client.Core</Name>
+      <Name>MazeSolver.Client.CoreV1</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

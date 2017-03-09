@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using .mazeSolverService;
+using ClassLibrary3.mazeSolverService;
 
 namespace MazeSolver.Client.Wpf
 {

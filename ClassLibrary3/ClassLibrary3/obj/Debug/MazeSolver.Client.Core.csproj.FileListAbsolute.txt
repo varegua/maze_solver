@@ -1,3 +1,8 @@
-C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\MazeSolver.Client.Core.csprojResolveAssemblyReference.cache
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.dll
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.pdb
+D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\MazeSolver.Client.Core.csprojResolveAssemblyReference.cache
+D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.dll
+D:\Cours Bordeaux\maze_solver\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.pdb
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\bin\Debug\ClassLibrary3.dll.config
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\bin\Debug\ClassLibrary3.dll
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\bin\Debug\ClassLibrary3.pdb

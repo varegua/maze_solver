@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.MessageBox;
 
 namespace MazeSolver.Client.Core
 {
@@ -34,7 +33,7 @@ namespace MazeSolver.Client.Core
             return this.player.NbMove;
         }
 
-        private void DoMovePlayer(PlayerGame playerGame, Player player, Direction dir)
+        public Boolean DoMovePlayer(PlayerGame playerGame, Player player, Direction dir)
         {
             try
             {
@@ -43,9 +42,8 @@ namespace MazeSolver.Client.Core
             }
             catch (System.ServiceModel.FaultException e)
             {
-                throw new System.ServiceModel.FaultException(e);
             }
-            IsFinishGame();
+            return IsFinishGame();
           //  DisplayPlayerPossibilities(this.player.VisibleCells, this.player.CurrentPosition);
         }
 

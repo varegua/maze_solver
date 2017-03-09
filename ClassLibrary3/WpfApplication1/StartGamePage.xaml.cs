@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClassLibrary3.mazeSolverService;
 
-namespace WpfApplication1
+namespace MazeSolver.Client.Wpf
 {
     /// <summary>
     /// Logique d'interaction pour StartGamePage.xaml

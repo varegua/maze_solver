@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace WpfApplication1
+namespace MazeSolver.Client.Core
 {
 
 

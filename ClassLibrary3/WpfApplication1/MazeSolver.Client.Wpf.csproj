@@ -65,6 +65,7 @@
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ManageImages.cs" />
     <Compile Include="StartGamePage.xaml.cs">
       <DependentUpon>StartGamePage.xaml</DependentUpon>
     </Compile>

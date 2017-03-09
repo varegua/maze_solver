@@ -56,7 +56,7 @@ namespace MazeSolver.Client.Core
             while (this.player.FinishTime == null)
             {
                 dir = this.bot.SelectBestDirection(this.player);
-                doMovePlayer(playerGame, this.player, dir);
+                DoMovePlayer(playerGame, this.player, dir);
                 Console.WriteLine("position X: " + this.player.CurrentPosition.X + " Y: " + this.player.CurrentPosition.Y);
                 Thread.Sleep(500);
             }
@@ -67,7 +67,7 @@ namespace MazeSolver.Client.Core
         {
             if (this.player.FinishTime != null)
             {
-                MessageBox.Show("You finish in " + this.player.FinishTime + "\n " + this.player.SecretMessage);
+                <.Show("You finish in " + this.player.FinishTime + "\n " + this.player.SecretMessage);
                 GameEnd page = new GameEnd(gameClient, playerGame, this.player);
             }
         }

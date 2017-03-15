@@ -37,6 +37,7 @@ namespace MazeSolver.Client.Core
             }
             catch (System.ServiceModel.FaultException e)
             {
+                Console.WriteLine(e.Message);
             }
         }
 

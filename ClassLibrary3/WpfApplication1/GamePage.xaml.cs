@@ -17,6 +17,7 @@ namespace MazeSolver.Client.Wpf
     {
 
         private Play game;
+        private ManageImages manageImage;
 
         public GamePage()
         {
@@ -26,6 +27,7 @@ namespace MazeSolver.Client.Wpf
         public GamePage(string name, Difficulty difficulty)
         {
             this.game = new Play(name, difficulty);
+            this.manageImage = new ManageImages(this);
             InitializeComponent();
             InitializeGame();
             this.Focus();
@@ -41,10 +43,10 @@ namespace MazeSolver.Client.Wpf
 
         private void InitializeGame()
         {
-            ManageImages.InitializeLabelGame(game, difficultyLabel, playerNameLabel, nbMoveValue);
-            ManageImages.DisplayPlayerPossibilities(game.player, gameCanvas);
+            manageImage.InitializeLabelGame(game);
+            manageImage.DisplayPlayerPossibilities(game.player);
             InitWindows();
-            ManageImages.InitGameCanvas(gameCanvas, game);
+            manageImage.InitGameCanvas(game);
         }
 
         private void InitWindows()
@@ -73,10 +75,6 @@ namespace MazeSolver.Client.Wpf
                     PlayBotVisually();
                     break;
                 default:
-                    if (game.PlayBot())
-                    {
-                        ManageImages.DisplayFinishPage(this, game);
-                    }
                     break;
             }
         }
@@ -86,13 +84,13 @@ namespace MazeSolver.Client.Wpf
             try
             {
                 game.DoMovePlayer(dir);
-                ManageImages.MovePlayerImage(game.player, personnage, nbMoveValue);
+                manageImage.MovePlayerImage(game.player);
             }
             catch (System.ServiceModel.FaultException e)
             {
                 MessageBox.Show(e.Message);
             }
-            ManageImages.DisplayPlayerPossibilities(this.game.player, gameCanvas);
+            manageImage.DisplayPlayerPossibilities(this.game.player);
             if (game.IsFinishGame())
             {
                 ManageImages.DisplayFinishPage(this, game);
@@ -102,14 +100,11 @@ namespace MazeSolver.Client.Wpf
         
         private void PlayBotVisually()
         {
-              Action EmptyDelegate = delegate () { };
-
             while (!game.IsFinishGame())
             {
                 game.DoMovePlayer(game.bot.FindBestDirection(game.player));
-                ManageImages.UpdateMazeImages(gameCanvas, game.player, personnage, nbMoveLabel);
-                for (int i = 0; i < gameCanvas.Children.Count; i++)
-                    gameCanvas.Children[i].InvalidateVisual();
+                manageImage.MovePlayerImage(game.player);
+                manageImage.DisplayPlayerPossibilities(this.game.player);
                 Thread.Sleep(500);
             }
             ManageImages.DisplayFinishPage(this, game);

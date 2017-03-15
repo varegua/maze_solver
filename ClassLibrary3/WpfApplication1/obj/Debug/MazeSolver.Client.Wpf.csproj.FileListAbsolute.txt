@@ -34,3 +34,5 @@ C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApp
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\MazeSolver.Client.Wpf.csproj.GenerateResource.Cache
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.exe
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\WpfApplication1.pdb
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\TestPage.g.cs
+C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\WpfApplication1\obj\Debug\TestPage.baml

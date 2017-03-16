@@ -64,7 +64,7 @@ namespace MazeSolver.Client.Wpf
             {
                 lblResult.Content = "Secret Message : " + this.player.SecretMessage + "\n";
             }
-            lblResult.Content = "You finish in "  + this.player.FinishTime + " \nand " + this.player.NbMove + " moves.\n";
+            lblResult.Content = "You finish in "  + this.player.FinishTime + " and " + this.player.NbMove + " moves.\n";
         }
 
         private Difficulty getNextDifficulty(PlayerGame playerGame)

@@ -35,5 +35,10 @@ namespace MazeSolver.Client.Wpf
         {
 
         }
+
+        private void btnQuit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

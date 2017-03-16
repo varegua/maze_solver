@@ -1,12 +1,6 @@
-﻿using ClassLibrary3.mazeSolverService;
-using MazeSolver.Client.Core;
+﻿using MazeSolver.Client.Core.mazeSolverService;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace MazeSolver.Client.Core
 {
@@ -28,6 +22,16 @@ namespace MazeSolver.Client.Core
             this.player = playerGame.Player;
             this.bot = new BotPlayerLogics(this.player);
         }
+
+        public Play(String name, String gameKey)
+        {
+            this.name = name;
+            this.gameClient = new GameClient("BasicHttpBinding_IGame");
+            this.player = gameClient.AddPlayer(gameKey, name);
+
+            this.bot = new BotPlayerLogics(this.player);
+        }
+
 
         public void DoMovePlayer(Direction dir)
         {

@@ -10,12 +10,12 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using ClassLibrary3.mazeSolverService;
+using MazeSolver.Client.Core.mazeSolverService;
 using System.Threading;
 using MazeSolver.Client.Core;
 using MazeSolver.Client.Wpf;
 
-namespace MazeSolver.Client
+namespace MazeSolver.Client.Wpf
 {
     public class ManageImages
     {

@@ -8,5 +8,4 @@
       d:DesignHeight="350" d:DesignWidth="500"
        Focusable="True"
       Title="GamePage" KeyDown="Page_KeyDown">
-    
 </Page>

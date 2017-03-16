@@ -1,9 +1,4 @@
-﻿using ClassLibrary3.mazeSolverService;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MazeSolver.Client.Core.mazeSolverService;
 
 namespace MazeSolver.Client.Core
 {

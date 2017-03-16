@@ -8,10 +8,10 @@
       d:DesignHeight="350" d:DesignWidth="500"
       Title="GameAccueil">
 
-    <Grid>
-        <Button x:Name="btnPlay" Content="Play" HorizontalAlignment="Left" Margin="190,128,0,0" VerticalAlignment="Top" Width="108" Height="34" Click="btnPlay_Click"/>
-        <Button x:Name="btnQuit" Content="Quit" HorizontalAlignment="Left" Margin="190,204,0,0" VerticalAlignment="Top" Width="108" Height="34" />
-        <Label x:Name="lblTitle" Content="MAZE" HorizontalAlignment="Left" Margin="190,38,0,0" VerticalAlignment="Top" Height="46" Width="108" FontSize="25" FontWeight="Bold"  HorizontalContentAlignment="Center"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="115,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="49" Width="299"/>
+    <Grid Background="LightSkyBlue">
+        <Label x:Name="lblTitle" Content="Maze Solver" HorizontalAlignment="Left" Margin="132,38,0,0" VerticalAlignment="Top" Height="51" Width="245" FontStyle="Italic" FontFamily="Georgia" FontSize="28" FontWeight="Bold"  HorizontalContentAlignment="Center"/>
+        <Button x:Name="btnNewGame" Content="New game" HorizontalAlignment="Left" Margin="175,130,0,0" VerticalAlignment="Top" Width="157" Height="42" Background="Ivory" Click="btnPlay_Click"/>
+       <!--<Button x:Name="btnRejoin" Content="Join game" HorizontalAlignment="Left" Margin="175,173,0,0" VerticalAlignment="Top" Width="157" Height="42" Background="Ivory" Click="btnRejoin_Click" />-->
+        <Button x:Name="btnQuit" Content="Quit" HorizontalAlignment="Left" Margin="175,210,0,0" VerticalAlignment="Top" Width="157" Height="42" Background="Ivory" />
     </Grid>
 </Page>

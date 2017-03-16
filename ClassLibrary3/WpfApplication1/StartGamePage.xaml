@@ -8,12 +8,12 @@
       d:DesignHeight="300" d:DesignWidth="500"
       Title="StartGamePage">
 
-    <Grid>
-        <TextBox x:Name="tBPseudo" HorizontalAlignment="Left" Height="24" Margin="180,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
-        <Label x:Name="lblName" Content="Pseudo" HorizontalAlignment="Left" Margin="191,68,0,0" VerticalAlignment="Top" Width="50"/>
-        <Label x:Name="lblTitle" Content="Maze Solver" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold"/>
-        <Label x:Name="lblDifficulty" Content="Difficulty" HorizontalAlignment="Left" Margin="180,134,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnPlay" Content="Play" HorizontalAlignment="Left" Margin="180,219,0,0" VerticalAlignment="Top" Width="153" Height="42" Click="btnPlay_Click"/>
-        <ComboBox x:Name="cBDifficulty" HorizontalAlignment="Left" Margin="180,160,0,0" VerticalAlignment="Top" Width="153" Height="27" > </ComboBox>
+    <Grid Background="LightSkyBlue">
+        <Label x:Name="lblTitle" Content="Maze Solver" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Georgia" FontSize="28" FontWeight="Bold"  HorizontalContentAlignment="Center" Width="223"/>
+        <Label x:Name="lblName" Content="Enter your pseudo" HorizontalAlignment="Left" Margin="180,68,0,0" VerticalAlignment="Top" Width="133" FontWeight="Bold"/>
+        <TextBox x:Name="tBPseudo" HorizontalAlignment="Left" Height="24" Margin="180,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153" Background="Ivory"/>
+        <Label x:Name="lblDifficulty" Content="Select game difficulty" HorizontalAlignment="Left" Margin="180,134,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ComboBox x:Name="cBDifficulty" HorizontalAlignment="Left" Margin="180,160,0,0" VerticalAlignment="Top" Width="153" Height="27" Background="Ivory" ></ComboBox>
+        <Button x:Name="btnPlay" Content="Play" HorizontalAlignment="Left" Margin="180,229,0,0" VerticalAlignment="Top" Width="153" Height="32" Background="Ivory" Click="btnPlay_Click"/>
     </Grid>
 </Page>

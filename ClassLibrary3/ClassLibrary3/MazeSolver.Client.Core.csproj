@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="DiagramMazeSolver.Client.Core.cd" />
     <None Include="Service References\mazeSolverService\ClassLibrary3.mazeSolverService.Game.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

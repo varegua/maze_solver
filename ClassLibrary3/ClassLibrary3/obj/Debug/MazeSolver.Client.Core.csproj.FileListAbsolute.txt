@@ -6,4 +6,3 @@ C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassL
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\bin\Debug\ClassLibrary3.pdb
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.dll
 C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\ClassLibrary3.pdb
-C:\Users\ysabelle\Desktop\master ingesup\dotNet\maze_solver\ClassLibrary3\ClassLibrary3\obj\Debug\MazeSolver.Client.Core.csprojResolveAssemblyReference.cache

@@ -1,4 +1,4 @@
-﻿using ClassLibrary3.mazeSolverService;
+﻿using MazeSolver.Client.Core.mazeSolverService;
 using System;
 using System.Collections.Generic;
 using System.Linq;

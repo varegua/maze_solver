@@ -31,5 +31,9 @@ namespace MazeSolver.Client.Wpf
             this.NavigationService.Navigate(page);
         }
 
+        private void btnRejoin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

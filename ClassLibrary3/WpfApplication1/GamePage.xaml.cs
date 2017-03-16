@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
-using ClassLibrary3.mazeSolverService;
+using MazeSolver.Client.Core.mazeSolverService;
 using MazeSolver.Client.Core;
 using System.Threading;
 using System.Windows.Threading;
@@ -30,8 +30,14 @@ namespace MazeSolver.Client.Wpf
             this.manageImage = new ManageImages(this);
             InitializeComponent();
             InitializeGame();
-            this.Focus();
-            this.ShowsNavigationUI = false;
+        }
+
+        public GamePage(string name, string gameKey)
+        {
+            this.game = new Play(name, gameKey);
+            this.manageImage = new ManageImages(this);
+            InitializeComponent();
+            InitializeGame();
         }
 
         /* public GamePage(string name, Difficulty difficulty, GameClient gameClient, PlayerGame playerGame) : this(name, difficulty)
@@ -43,9 +49,9 @@ namespace MazeSolver.Client.Wpf
 
         private void InitializeGame()
         {
+            InitWindows();
             manageImage.InitializeLabelGame(game);
             manageImage.DisplayPlayerPossibilities(game.player);
-            InitWindows();
             manageImage.InitGameCanvas(game);
         }
 
@@ -53,6 +59,8 @@ namespace MazeSolver.Client.Wpf
         {
             this.WindowHeight = 70 + this.game.playerGame.Maze.Height * 31;
             this.WindowWidth = 100 + this.game.playerGame.Maze.Width * 31;
+            this.ShowsNavigationUI = false;
+            this.Focus();
         }
 
         private void Page_KeyDown(object sender, KeyEventArgs e)
